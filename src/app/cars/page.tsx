@@ -1,6 +1,5 @@
 import Search from "@/components/Search";
 import ListCars from "@/components/cars/ListCars";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import queryString from "query-string";
 
@@ -20,7 +19,7 @@ const fetchAllCars = async ({ page }: { page: string }) => {
   isLoading = false;
   return res.json();
 };
-export default async function Home({
+export default async function Cars({
   searchParams: { page },
 }: {
   searchParams: { page: string };
