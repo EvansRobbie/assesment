@@ -9,7 +9,7 @@ let base_url: string;
 if (process.env.NODE_ENV === "development") {
   base_url = "http://localhost:3001";
 } else {
-  base_url = "https://assesment-pi.vercel.app";
+  base_url = "https://assesment-1p0m85rgo-robbieroyalmabati.vercel.app";
 }
 const fetchAllCars = async ({ page }: { page: string }) => {
   isLoading = true;
