@@ -17,7 +17,7 @@ const fetchAllCars = async ({ page }: { page: string }) => {
     page,
   };
   const searchQuery = queryString.stringify(urlParams);
-  const res = await fetch(`${base_url}/api/getAllCars?${searchQuery}`);
+  const res = await fetch(`${base_url}/api/getAllCars`);
   if (res.status !== 200) {
     return notFound();
   }
