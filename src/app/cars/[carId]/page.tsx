@@ -6,7 +6,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import useSWR from "swr";
 
-export const fetcher = (...args: any) => fetch(args).then((res) => res.json());
+const fetcher = (...args: any) => fetch(args).then((res) => res.json());
 
 interface carProps {
   params: {
