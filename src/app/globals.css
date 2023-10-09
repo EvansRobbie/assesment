@@ -6,4 +6,8 @@
   .transitions {
     @apply ease-in duration-300 transition-all;
   }
+  tr,
+  td {
+    @apply p-1.5 shadow-sm  text-sm;
+  }
 }

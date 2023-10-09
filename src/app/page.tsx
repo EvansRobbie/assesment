@@ -5,15 +5,19 @@ import { notFound } from "next/navigation";
 import queryString from "query-string";
 
 let isLoading: boolean;
+let base_url: string;
+if (process.env.NODE_ENV === "development") {
+  base_url = "http://localhost:3001";
+} else {
+  base_url = "https://assesment-pi.vercel.app";
+}
 const fetchAllCars = async ({ page }: { page: string }) => {
   isLoading = true;
   const urlParams = {
     page,
   };
   const searchQuery = queryString.stringify(urlParams);
-  const res = await fetch(
-    `http://localhost:3001/api/getAllCars?${searchQuery}`
-  );
+  const res = await fetch(`${base_url}/api/getAllCars?${searchQuery}`);
   if (res.status !== 200) {
     return notFound();
   }

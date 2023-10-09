@@ -1,14 +1,26 @@
 interface carEntity {
   id: string;
   title: string;
+  carName: string;
   imageUrl: string;
   year: number;
   city: string;
   state: string;
+  country: string;
   sellingCondition: string;
   hasWarranty: boolean;
   marketplacePrice: number;
   marketplaceOldPrice: number;
+  engineType: string;
+  bodyType: {
+    name: string;
+  };
+  interiorColor: string;
+  exteriorColor: string;
+  registrationSeries: string;
+  model: {
+    wheelType: string;
+  };
   hasFinancing: boolean;
   mileage: number;
   mileageUnit: string;
