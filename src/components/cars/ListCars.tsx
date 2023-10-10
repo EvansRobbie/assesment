@@ -31,8 +31,8 @@ const ListCars = ({ cars, isLoading }: carProps) => {
                 <div className="relative h-[200px] transitions w-full hover:brightness-50 ">
                   <Image
                     className="object-cover rounded-t-xl "
-                    src={car.imageUrl}
-                    alt={car.title}
+                    src={`${car.imageUrl}`}
+                    alt={`/${car.title}`}
                     fill
                     priority
                   />
