@@ -49,3 +49,11 @@ interface mediaEntity {
   url: string;
   type: string;
 }
+
+interface PopularEntity {
+  makeList: {
+    id: number;
+    name: string;
+    imageUrl: string;
+  }[];
+}

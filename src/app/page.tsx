@@ -1,5 +1,6 @@
 import Search from "@/components/Search";
 import ListCars from "@/components/cars/ListCars";
+import HeroSection from "@/components/layouts/HeroSection";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import queryString from "query-string";
@@ -11,6 +12,16 @@ if (process.env.NODE_ENV === "development") {
 } else {
   base_url = "https://assesment-pi.vercel.app";
 }
+
+const fetchPopular = async () => {
+  const res = await fetch(`${base_url}/api/getPopularCars`);
+  if (res.status !== 200) {
+    return notFound();
+  }
+  isLoading = false;
+  return res.json();
+};
+
 const fetchAllCars = async ({ page }: { page: string }) => {
   isLoading = true;
   const urlParams = {
@@ -30,12 +41,15 @@ export default async function Home({
   searchParams: { page: string };
 }) {
   const data = await fetchAllCars({ page });
+
+  const popular = await fetchPopular();
+  const popularMake = popular && popular[1];
   // console.log(page);
   const cars = data[1];
 
   return (
     <main className="flex min-h-screen flex-col ">
-      <Search />
+      <HeroSection popularMake={popularMake} />
       <ListCars cars={cars} isLoading={isLoading} />
     </main>
   );
