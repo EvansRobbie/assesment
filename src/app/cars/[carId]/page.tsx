@@ -5,6 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { BiLogoFacebookCircle } from "react-icons/bi";
 import useSWR from "swr";
+import CarMedia from "@/components/cars/CarMedia";
 
 const fetcher = (...args: any) => fetch(args).then((res) => res.json());
 
@@ -30,70 +31,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
         <div>Loading...</div>
       ) : (
         <div className="flex gap-4">
-          <div className="w-full max-w-md  border">
-            <div className="relative w-full h-[300px] max-w-md ">
-              <Image src={car.imageUrl} fill priority alt={`${car.title}`} />
-            </div>
-            <div className="my-4">
-              <div className="relative w-[200px] h-[100px]">
-                <Image
-                  className="object-cover"
-                  src={car.imageUrl}
-                  fill
-                  priority
-                  alt={`${car.title}`}
-                />
-              </div>
-            </div>
-            <table className="w-full px-4 ">
-              <thead>
-                <tr>
-                  <td></td>
-                  <td></td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Year of manufacture</td>
-                  <td>{car.year}</td>
-                </tr>
-                <tr>
-                  <td>Location</td>
-                  <td className="text-sm flex gap-2">
-                    <span>{car.city}</span>
-                    <span className="font-bold">{car.country}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Availavility</td>
-                  <td>{car.sold ? "Sold" : "Available"}</td>
-                </tr>
-                <tr>
-                  <td>Mileage</td>
-                  <td className="flex gap-2">
-                    <span>{car.mileage}</span>
-                    <span className="font-bold">{car.mileageUnit}</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Drive</td>
-                  <td>{car.model.wheelType}</td>
-                </tr>
-                <tr>
-                  <td>Fuel Type</td>
-                  <td>{car.fuelType}</td>
-                </tr>
-                <tr>
-                  <td>Transmission</td>
-                  <td>{car.transmission} cc</td>
-                </tr>
-                <tr>
-                  <td>Engine Size</td>
-                  <td>{car.ccMeasurement}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <CarMedia car={car} />
           <div className="w-full  bg-slate-100/10 shadow-md rounded-xl px-4 py-8">
             <div className="flex w-full justify-between">
               <h1 className="text-2xl text-center font-bold text-gray-800">
@@ -113,7 +51,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
               <div className="flex w-full justify-between">
                 Type:{" "}
                 <span className="border font-bold text-slate-900 text-sm rounded py-1 px-4">
-                  {car.bodyType.name}
+                  {car.bodyType?.name}
                 </span>
               </div>
               <div className="flex   w-full justify-between">
