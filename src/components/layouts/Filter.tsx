@@ -5,7 +5,7 @@ import StarRatings from "react-star-ratings";
 const Filters = () => {
   const [scrollNav, setScrollNav] = useState(false);
   const navScroll = () => {
-    window.scrollY > 700 ? setScrollNav(true) : setScrollNav(false);
+    window.scrollY > 600 ? setScrollNav(true) : setScrollNav(false);
   };
 
   useEffect(() => {

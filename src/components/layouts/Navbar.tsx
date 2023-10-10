@@ -181,9 +181,11 @@ const icons = [
 const Navbar = () => {
   return (
     <div className="h-full w-full flex items-center flex-col text-slate-200 shadow-md">
-      <div className="bg-[#0879c1] h-10 w-full flex justify-betwee items-center">
-        <div className="flex gap-2 items-center min-w-[500px]">
-          <h2>Offer Zone Top Deals & Discounts</h2>
+      <div className="bg-[#0879c1] px-4 h-10 w-full flex justify-betwee items-center ">
+        <div className="flex gap-2 items-center  xl:min-w-[500px]">
+          <h2 style={{ whiteSpace: "nowrap" }} className="text-sm xl:text-base">
+            Offer Zone Top Deals & Discounts
+          </h2>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -211,14 +213,14 @@ const Navbar = () => {
             >
               <div className="border-l-2 h-full"></div>
               <span className="flex whitespace-nobreak">{nav.icon}</span>
-              <span className="text-slate-200 hover:text-slate-300">
+              <span className="text-slate-200 text-sm hover:text-slate-300">
                 {nav.name}
               </span>
             </Link>
           ))}
         </div>
       </div>
-      <div className="w-full flex h-20 shadow-sm  max-w-[1100px]  mx-auto justify-between items-center ">
+      <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px]  mx-auto justify-between items-center ">
         <div className="text-3xl font-bold text-red-500 border">
           <Link href={"/"}>Car Dealers</Link>
         </div>
@@ -250,7 +252,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="w-full border-b"></div>
-      <div className="navbar bg-base-100 text-slate-900 max-w-[1100px] mx-auto">
+      <div className="navbar bg-base-100 text-slate-900 px-4 max-w-[1100px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
