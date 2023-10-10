@@ -24,8 +24,8 @@ const Filters = () => {
           ? "absolute top-0 left-0"
           : scrollNav
           ? "fixed left-20 top-2"
-          : "absolute -left-full -bottom-full"
-      } md:w-1/3 lg:w-1/4 px-4 transitions duration-700`}
+          : "absolute -left-full "
+      } md:w-1/3 lg:w-1/4 px-4 transitions !ease-out duration-300`}
     >
       <a
         className="md:hidden mb-5  w-full text-center px-4 py-2 inline-block text-lg text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600"
