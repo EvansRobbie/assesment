@@ -3,6 +3,8 @@ import React from "react";
 import useSWR from "swr";
 import CarMedia from "@/components/cars/CarMedia";
 import CTA from "@/components/layouts/CTA";
+import Breadcrumb from "@/components/layouts/BreadCrumbs";
+import { usePathname } from "next/navigation";
 
 const fetcher = (...args: any) => fetch(args).then((res) => res.json());
 
@@ -12,6 +14,7 @@ interface carProps {
   };
 }
 const CarId: React.FC<carProps> = ({ params: { carId } }) => {
+  const pathname = usePathname();
   let car: carEntity;
   const { data, error, isLoading } = useSWR(
     `/api/getAllCars/${carId}`,
@@ -24,6 +27,9 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
   //   console.log(car);
   return (
     <div>
+      <div className="my-4">
+        <Breadcrumb replacePath={pathname} />
+      </div>
       {isLoading ? (
         <div>Loading...</div>
       ) : (

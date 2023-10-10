@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import CustomPagination from "../layouts/Pagination";
 import { CarCardSkeleton } from "../layouts/Skeleton";
 import Image from "next/image";
 import Link from "next/link";
+import Breadcrumb from "../layouts/BreadCrumbs";
+import { usePathname } from "next/navigation";
 
 interface carProps {
   cars: {
@@ -13,10 +16,14 @@ interface carProps {
 }
 
 const ListCars = ({ cars, isLoading }: carProps) => {
+  const pathname = usePathname();
   // console.log(isLoading);
   // console.log(cars);
   return (
     <div className="my-6 ">
+      <div className="my-4">
+        <Breadcrumb replacePath={pathname} />
+      </div>
       <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {isLoading
           ? Array(4)

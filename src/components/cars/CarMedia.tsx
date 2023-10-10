@@ -13,8 +13,10 @@ const CarMedia = ({ car }: { car: carEntity }) => {
     fetcher
   );
   const media = data && data[1];
+  if (error) {
+    console.log(error);
+  }
 
-  //   console.log(media);
   const imgRef = useRef<HTMLImageElement | null>(null);
   const setImagePreview = (url: string) => {
     const image = imgRef.current && (imgRef.current.src = url);
@@ -23,7 +25,7 @@ const CarMedia = ({ car }: { car: carEntity }) => {
 
   return (
     <div className="w-full max-w-md  ">
-      {image?.includes("video") ? (
+      {image?.includes("video") || image?.includes("mp4") ? (
         <div className="w-full  transitions h-[300px] rounded-md max-w-md">
           <iframe
             width="16/9"
@@ -53,46 +55,45 @@ const CarMedia = ({ car }: { car: carEntity }) => {
         <div>Loading...</div>
       ) : (
         <div className="space-x-2 overflow-auto my-4 whitespace-nowrap">
-          {media.carMediaList.map((image: mediaEntity) => (
-            <div
-              key={image.id}
-              onClick={() => setImagePreview(image.url)}
-              className=" inline-block border border-gray-200 p-1 rounded-md hover:border-slate-950 transitions"
-            >
-              {image.type.includes("video") ? (
-                <div
-                  onClick={() => setImagePreview(image.url)}
-                  className="relative w-[200px] h-[100px]  overflow-hidden"
-                >
-                  <video
-                    width="16/9" // Set a responsive width (16:9 aspect ratio)
-                    height="full" // Take up full height of the container
-                    src={image.url}
-                    // frameBorder="0"
-                    // allowFullScreen
-                    autoPlay={false}
-                    loop={true}
-                    muted
-                    className="w-full h-full rounded  " // Apply additional Tailwind
-                    title={image.name}
-                  />
-                  <div className="absolute  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 w-5 h-5 md:h-7 md:w-7 flex items-center justify-center  bg-slate-200/90 rounded-full opacity-100">
-                    <AiFillPlayCircle className=" icon-style  h-3 w-3 md:w-6 md:h-6 text-slate-900/70 " />
+          {media.carMediaList.length > 0 &&
+            media.carMediaList.map((image: mediaEntity) => (
+              <div
+                key={image.id}
+                onClick={() => setImagePreview(image.url)}
+                className=" inline-block border border-gray-200 p-1 rounded-md hover:border-slate-950 transitions"
+              >
+                {image.type.includes("video") ? (
+                  <div
+                    onClick={() => setImagePreview(image.url)}
+                    className="relative w-[200px] cursor-pointer h-[100px]  overflow-hidden"
+                  >
+                    <video
+                      width="16/9" // Set a responsive width (16:9 aspect ratio)
+                      height="full" // Take up full height of the container
+                      src={image.url}
+                      autoPlay={false}
+                      loop={true}
+                      muted
+                      className="w-full h-full rounded object-cover  " // Apply additional Tailwind
+                      title={image.name}
+                    />
+                    <div className="absolute  top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50 w-5 h-5 md:h-7 md:w-7 flex items-center justify-center  bg-slate-200/90 rounded-full opacity-100">
+                      <AiFillPlayCircle className=" icon-style  h-3 w-3 md:w-6 md:h-6 text-slate-900/70 " />
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div className="relative cursor-pointer w-[200px] h-[100px]">
-                  <Image
-                    className="object-cover rounded "
-                    src={`${image.url}`}
-                    fill
-                    priority
-                    alt={`${image.name}`}
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+                ) : (
+                  <div className="relative cursor-pointer w-[200px] h-[100px]">
+                    <Image
+                      className="object-cover rounded "
+                      src={`${image.url}`}
+                      fill
+                      priority
+                      alt={`${image.name}`}
+                    />
+                  </div>
+                )}
+              </div>
+            ))}
         </div>
       )}
       <table className="w-full px-4 ">
