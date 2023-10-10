@@ -1,9 +1,9 @@
 interface carEntity {
-  id: string;
-  title: string;
-  carName: string;
-  imageUrl: string;
-  year: number;
+  id?: string;
+  title?: string;
+  carName?: string;
+  imageUrl?: string;
+  year?: number;
   city: string;
   state: string;
   country: string;
@@ -15,11 +15,11 @@ interface carEntity {
   bodyType: {
     name: string;
   };
-  interiorColor: string;
-  exteriorColor: string;
-  registrationSeries: string;
-  model: {
-    wheelType: string;
+  interiorColor?: string;
+  exteriorColor?: string;
+  registrationSeries?: string;
+  model?: {
+    wheelType?: string;
   };
   hasFinancing: boolean;
   mileage: number;
