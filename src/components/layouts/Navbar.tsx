@@ -183,7 +183,7 @@ const Navbar = () => {
     <div className="h-full w-full flex items-center flex-col bg-white  shadow-md">
       <div className="bg-[#0879c1] px-4 h-10 w-full flex text-slate-100 justify-betwee items-center ">
         <div className="flex gap-2 items-center  xl:min-w-[500px]">
-          <h2 style={{ whiteSpace: "nowrap" }} className="text-sm xl:text-base">
+          <h2 style={{ whiteSpace: "nowrap" }} className="text-sm ">
             Offer Zone Top Deals & Discounts
           </h2>
           <div>
@@ -220,7 +220,7 @@ const Navbar = () => {
           ))}
         </div>
       </div>
-      <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px]  mx-auto justify-between items-center ">
+      <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px] gap-4  mx-auto justify-between items-center ">
         <div className="text-3xl font-bold text-red-500 border">
           <Link href={"/"} style={{ whiteSpace: "nowrap" }}>
             Car Dealers

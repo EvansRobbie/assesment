@@ -15,7 +15,7 @@ interface carProps {
 const HeroSection = ({ cars }: carProps) => {
   const data = cars && cars.result[0];
   return (
-    <div className="bg-slate-900 max-h-[50vh] flex items-center text-slate-200 py-8">
+    <div className="bg-slate-950 max-h-[50vh] flex items-center text-slate-200 py-8">
       <div className="mx-auto max-w-[1100px] ">
         <div className="grid grid-cols-2 gap-10 items-center">
           <div>
@@ -68,7 +68,7 @@ const HeroSection = ({ cars }: carProps) => {
                 alt="heroimage"
               />
             </motion.div>
-            <div className=" absolute right-24 rounded-full top-36  z-0 h-60 w-60 bg-white shadow-lg shadow-red-500 "></div>
+            <div className=" absolute right-24 rounded-full top-36  z-0 h-60 w-60 bg-black shadow-lg shadow-red-500 "></div>
           </div>
         </div>
       </div>
