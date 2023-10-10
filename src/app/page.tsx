@@ -9,7 +9,7 @@ let base_url: string;
 if (process.env.NODE_ENV === "development") {
   base_url = "http://localhost:3001";
 } else {
-  base_url = "https://assesment-1p0m85rgo-robbieroyalmabati.vercel.app";
+  base_url = "https://assesment-pi.vercel.app";
 }
 const fetchAllCars = async ({ page }: { page: string }) => {
   isLoading = true;
@@ -30,7 +30,7 @@ export default async function Home({
   searchParams: { page: string };
 }) {
   const data = await fetchAllCars({ page });
-  console.log(page);
+  // console.log(page);
   const cars = data[1];
 
   return (
