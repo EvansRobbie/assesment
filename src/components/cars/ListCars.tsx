@@ -21,7 +21,7 @@ const ListCars = ({ cars, isLoading }: carProps) => {
   // console.log(isLoading);
   // console.log(cars);
   return (
-    <div className="my-6 ">
+    <div className="my-6 min-h-screen">
       <div className="my-4">
         <Breadcrumb replacePath={pathname} />
       </div>
