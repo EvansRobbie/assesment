@@ -22,6 +22,7 @@ interface carEntity {
     wheelType?: string;
   };
   hasFinancing: boolean;
+  error: string;
   mileage?: number;
   mileageUnit?: string;
   installment: number;
