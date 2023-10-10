@@ -49,7 +49,7 @@ export default async function Home({
 
   return (
     <main className="flex min-h-screen flex-col ">
-      <HeroSection popularMake={popularMake} />
+      <HeroSection cars={cars} />
       <ListCars cars={cars} isLoading={isLoading} />
     </main>
   );

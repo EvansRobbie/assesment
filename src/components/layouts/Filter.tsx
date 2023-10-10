@@ -1,11 +1,13 @@
 "use client";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import StarRatings from "react-star-ratings";
 
 const Filters = () => {
+  const pathname = usePathname();
   const [scrollNav, setScrollNav] = useState(false);
   const navScroll = () => {
-    window.scrollY > 590 ? setScrollNav(true) : setScrollNav(false);
+    window.scrollY > 530 ? setScrollNav(true) : setScrollNav(false);
   };
 
   useEffect(() => {
@@ -18,7 +20,11 @@ const Filters = () => {
   return (
     <aside
       className={`${
-        scrollNav ? "fixed right-0 top-2" : "absolute right-0 top-1/2"
+        pathname.startsWith("/cars")
+          ? "absolute top-0 left-0"
+          : scrollNav
+          ? "fixed left-20 top-2"
+          : "absolute left-20 top-1/2"
       } md:w-1/3   lg:w-1/4 px-4`}
     >
       <a

@@ -21,24 +21,27 @@ const ListCars = ({ cars, isLoading }: carProps) => {
   // console.log(isLoading);
   // console.log(cars);
   return (
-    <div className="my-6 min-h-screen">
+    <div className="my-6  min-h-screen  max-w-[1100px] mx-auto">
       <div className="my-4">
         <Breadcrumb replacePath={pathname} />
       </div>
       <div className="flex relative flex-col md:flex-row ">
-        <main className="md:w-2/3 lg:w-3/4 px-3">
-          <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <Filters />
+        <main className=" px-3 relative -right-40">
+          <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)
                   .fill(0)
                   .map((_, index) => <CarCardSkeleton key={index} />)
-              : cars.result.map((car) => (
+              : cars &&
+                cars.result.length > 0 &&
+                cars.result.map((car) => (
                   <Link
                     href={"/cars/" + car.id}
                     key={car.id}
                     className="shadow-lg bg-gray-50 rounded-b-xl"
                   >
-                    <div className="relative h-[200px] transitions w-full hover:brightness-50 ">
+                    <div className="relative h-[150px] transitions w-full hover:brightness-50 ">
                       <Image
                         className="object-cover rounded-t-xl "
                         src={`${car.imageUrl}`}
@@ -48,26 +51,16 @@ const ListCars = ({ cars, isLoading }: carProps) => {
                       />
                     </div>
                     <div className="p-4">
-                      <div className="flex justify-between ">
-                        <h2 className="text-slate-200 bg-slate-950 px-4 py-1 rounded-sm text-sm font-medium">
+                      <div className="flex justify-center ">
+                        {/* <h2 className="text-slate-200 bg-slate-950 px-4 py-1 rounded-sm text-sm font-medium">
                           {car.year}
-                        </h2>
-                        <h1 className="text-gray-500 text-lg">{car.title}</h1>
+                        </h2> */}
+                        <h1 className="text-gray-500 text-base text-center">
+                          {car.title}
+                        </h1>
                       </div>
-                      <div className="grid grid-cols-3 w-full gap-4 py-6 items-center  justify-center text-center">
-                        <div className="bg-slate-900/50 rounded text-sm py-1 font-semibold capitalize text-slate-200  backdrop-blur">
-                          {car.transmission}
-                        </div>
-                        <div className="bg-slate-900/50 rounded text-sm py-1 font-semibold capitalize text-slate-200  backdrop-blur">
-                          {car.ccMeasurement}
-                        </div>
-                        <div className="bg-slate-900/50 rounded text-sm py-1 font-semibold capitalize text-slate-200  backdrop-blur">
-                          {car.sellingCondition}
-                        </div>
-                      </div>
-                      <hr className="my-4" />
-                      <div className="flex justify-between w-full">
-                        <div className="font-bold">
+                      <div className="flex justify-between my-4 w-full">
+                        <div className="font-bold text-sm">
                           Ksh: {String(car.marketplacePrice)}
                         </div>
                         <div>
@@ -76,11 +69,17 @@ const ListCars = ({ cars, isLoading }: carProps) => {
                               Sold
                             </span>
                           ) : (
-                            <span className="bg-slate-950 rounded text-sm  font-semibold capitalize text-cyan-500 px-4 py-1  backdrop-blur">
+                            <span className="border rounded text-sm  font-semibold capitalize text-cyan-500 px-4 py-1  backdrop-blur">
                               Available
                             </span>
                           )}
                         </div>
+                      </div>
+                      <hr className="my-4" />
+                      <div className="w-full  flex justify-center  ">
+                        <button className="bg-red-500 text-white w-3/4 rounded py-2 ">
+                          Buy Now
+                        </button>
                       </div>
                     </div>
                     {/* <p>{car.}</p> */}
@@ -88,7 +87,6 @@ const ListCars = ({ cars, isLoading }: carProps) => {
                 ))}
           </div>
         </main>
-        <Filters />
       </div>
       <CustomPagination
         resPerPage={cars.pagination.pageSize}

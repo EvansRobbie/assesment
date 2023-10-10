@@ -180,8 +180,8 @@ const icons = [
 ];
 const Navbar = () => {
   return (
-    <div className="h-full w-full flex items-center flex-col text-slate-200 shadow-md">
-      <div className="bg-[#0879c1] px-4 h-10 w-full flex justify-betwee items-center ">
+    <div className="h-full w-full flex items-center flex-col bg-white  shadow-md">
+      <div className="bg-[#0879c1] px-4 h-10 w-full flex text-slate-100 justify-betwee items-center ">
         <div className="flex gap-2 items-center  xl:min-w-[500px]">
           <h2 style={{ whiteSpace: "nowrap" }} className="text-sm xl:text-base">
             Offer Zone Top Deals & Discounts
@@ -222,7 +222,9 @@ const Navbar = () => {
       </div>
       <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px]  mx-auto justify-between items-center ">
         <div className="text-3xl font-bold text-red-500 border">
-          <Link href={"/"}>Car Dealers</Link>
+          <Link href={"/"} style={{ whiteSpace: "nowrap" }}>
+            Car Dealers
+          </Link>
         </div>
         <div>
           <div className="w-[100vh] flex  gap-2 ">
