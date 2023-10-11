@@ -25,14 +25,14 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
   // console.log(isLoading);
   // console.log(cars);
   return (
-    <div className="my-6  min-h-screen  max-w-[1100px] mx-auto">
+    <>
       <div className="my-4">
         <Breadcrumb replacePath={pathname} />
       </div>
       <div className="flex relative flex-col md:flex-row ">
         <FilterButton />
         <Filters popularMake={popularMake} />
-        <main className=" px-3 relative lg:-right-28 xl:-right-44">
+        <main className=" relative lg:-right-28 xl:-right-44">
           <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)
@@ -103,7 +103,7 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
         resPerPage={cars.pagination.pageSize}
         productsCount={cars.pagination.total}
       />
-    </div>
+    </>
   );
 };
 
