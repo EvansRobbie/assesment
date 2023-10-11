@@ -308,14 +308,14 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal bg-slate-100 px-1">
+          <div className="navbar-center  hidden lg:flex">
+            <ul className="menu menu-horizontal  px-1">
               <li tabIndex={0}>
                 <details>
                   <summary className="border">All categories</summary>
-                  <ul className="p-2">
+                  <ul className="p-2 ">
                     {categories.map((cat) => (
-                      <li key={cat.id}>
+                      <li className="text-slate-50" key={cat.id}>
                         <a>{cat.cat}</a>
                       </li>
                     ))}
@@ -333,7 +333,7 @@ const Navbar = () => {
             <li tabIndex={0}>
               <details>
                 <summary>Condition</summary>
-                <ul className="p-2">
+                <ul className="p-2 text-slate-50">
                   <li>
                     <a>Local</a>
                   </li>
