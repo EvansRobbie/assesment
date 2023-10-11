@@ -8,6 +8,7 @@ import Breadcrumb from "../layouts/BreadCrumbs";
 import { usePathname } from "next/navigation";
 import Filters from "../layouts/Filter";
 import { useSearch } from "@/context/SearchContext";
+import FilterButton from "../layouts/FilterButton";
 
 interface carProps {
   cars: {
@@ -29,8 +30,9 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
         <Breadcrumb replacePath={pathname} />
       </div>
       <div className="flex relative flex-col md:flex-row ">
+        <FilterButton />
         <Filters popularMake={popularMake} />
-        <main className=" px-3 relative -right-28 xl:-right-44">
+        <main className=" px-3 relative lg:-right-28 xl:-right-44">
           <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)

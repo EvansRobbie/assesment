@@ -24,7 +24,7 @@ const CarMedia = ({ car }: { car: carEntity }) => {
   };
 
   return (
-    <div className="w-full max-w-md  ">
+    <div className="w-full max-w-sm lg:max-w-md  ">
       {image?.includes("video") || image?.includes("mp4") ? (
         <div className="w-full  transitions h-[300px] rounded-md max-w-md">
           <iframe

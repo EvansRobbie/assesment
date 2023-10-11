@@ -1,7 +1,6 @@
 import Search from "@/components/Search";
 import ListCars from "@/components/cars/ListCars";
 import HeroSection from "@/components/layouts/HeroSection";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import queryString from "query-string";
 
@@ -28,7 +27,9 @@ const fetchAllCars = async ({ page }: { page: string }) => {
     page,
   };
   const searchQuery = queryString.stringify(urlParams);
-  const res = await fetch(`${base_url}/api/getAllCars`);
+  const res = await fetch(`${base_url}/api/getAllCars`, {
+    next: { revalidate: 30 },
+  });
   if (res.status !== 200) {
     return notFound();
   }

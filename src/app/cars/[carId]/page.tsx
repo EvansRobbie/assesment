@@ -37,7 +37,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
         <div>Loading...</div>
       ) : (
         car && (
-          <div className="flex gap-4">
+          <div className="flex gap-4 flex-col md:flex-row">
             <CarMedia car={car} />
             <div className="w-full  bg-slate-100/10 shadow-md rounded-xl px-4 py-8">
               <div className="flex flex-col gap-4 w-full justify-between">
@@ -54,7 +54,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
               <h3 className="text-center my-4 font-bold underline underline-offset-4">
                 Specifications
               </h3>
-              <div className="grid grid-cols-2 justify-center gap-4 w-full">
+              <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 w-full">
                 <div className="flex w-full justify-between">
                   Type:{" "}
                   <span className="border font-bold text-slate-900 text-sm rounded py-1 px-4">

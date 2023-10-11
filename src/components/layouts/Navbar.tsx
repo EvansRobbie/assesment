@@ -193,7 +193,10 @@ const Navbar = () => {
     <div className="h-full w-full flex items-center flex-col bg-white  shadow-md">
       <div className="bg-[#0879c1] px-4 h-10 w-full flex text-slate-100 justify-betwee items-center ">
         <div className="flex gap-2 items-center  xl:min-w-[500px]">
-          <h2 style={{ whiteSpace: "nowrap" }} className="text-sm ">
+          <h2
+            style={{ whiteSpace: "nowrap" }}
+            className="text-sm md:hidden lg:block "
+          >
             Offer Zone Top Deals & Discounts
           </h2>
           <div>
@@ -213,7 +216,7 @@ const Navbar = () => {
             </svg>
           </div>
         </div>
-        <div className="flex gap-4 w-full justify-between ">
+        <div className="md:flex gap-4 w-full hidden  justify-between ">
           {topNav.map((nav) => (
             <Link
               key={nav.name}
@@ -233,7 +236,7 @@ const Navbar = () => {
       <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px] gap-4  mx-auto justify-between items-center ">
         <div className="text-3xl font-bold  ">
           <Link href={"/"} style={{ whiteSpace: "nowrap" }} className="py-2">
-            <div className="relative h-20 w-32 ">
+            <div className="relative h-12 w-20 md:h-20 md:w-32 ">
               <Image
                 src="/logo.png"
                 className="object-cover"

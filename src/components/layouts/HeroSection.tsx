@@ -18,7 +18,6 @@ const HeroSection = ({ cars }: carProps) => {
   const data = cars && cars.result[0];
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   const nextSlide = () => {
     setCurrentSlide((prevIndex) => (prevIndex + 1) % carousel.length);
@@ -35,9 +34,9 @@ const HeroSection = ({ cars }: carProps) => {
   }, [carousel[currentSlide].image]);
 
   return (
-    <div className="bg-slate-950 max-h-[50vh] flex items-center px-4 text-slate-200 py-8">
+    <div className="bg-slate-950 max-w-full md:max-h-[50vh] flex items-center px-4 text-slate-200 py-8">
       <div className="mx-auto max-w-[1100px] ">
-        <div className="grid grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <motion.h1
               variants={Variant}
@@ -67,13 +66,13 @@ const HeroSection = ({ cars }: carProps) => {
               </Link>
             </motion.div>
           </div>
-          <div className="relative h-[60vh] -top-20">
+          <div className="relative h-[50vh] md:h-[60vh] -top-20 md:top-10 lg:-top-20">
             <motion.div
               variants={Variant}
               initial="hidden"
               animate="visible"
               transition={{ delay: 2.6, duration: 1 }}
-              className="relative  z-10 h-[60vh] top-10 w-[30vw]"
+              className="relative  z-10 h-[60vh] -top-5 md:-top-10 lg:top-10 w-full lg:w-[30vw]"
             >
               <Image
                 fill={true}
@@ -83,7 +82,7 @@ const HeroSection = ({ cars }: carProps) => {
                 alt="heroimage"
               />
             </motion.div>
-            <div className=" absolute right-24 rounded-full top-36  z-0 h-60 w-60 bg-black shadow-lg shadow-red-500 "></div>
+            <div className=" absolute right-0 lg:right-24 rounded-full top-20 md:top-36  z-0 h-52 w-52 md:h-60 md:w-60 bg-black shadow-lg shadow-red-500 "></div>
           </div>
         </div>
       </div>
