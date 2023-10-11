@@ -7,6 +7,7 @@ import Link from "next/link";
 import Breadcrumb from "../layouts/BreadCrumbs";
 import { usePathname } from "next/navigation";
 import Filters from "../layouts/Filter";
+import { useSearch } from "@/context/SearchContext";
 
 interface carProps {
   cars: {
@@ -14,9 +15,11 @@ interface carProps {
     pagination: paginationEntity;
   };
   isLoading: boolean;
+  popularMake: PopularEntity;
 }
 
-const ListCars = ({ cars, isLoading }: carProps) => {
+const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
+  const { search } = useSearch();
   const pathname = usePathname();
   // console.log(isLoading);
   // console.log(cars);
@@ -26,8 +29,8 @@ const ListCars = ({ cars, isLoading }: carProps) => {
         <Breadcrumb replacePath={pathname} />
       </div>
       <div className="flex relative flex-col md:flex-row ">
-        <Filters />
-        <main className=" px-3 relative -right-40">
+        <Filters popularMake={popularMake} />
+        <main className=" px-3 relative -right-44">
           <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)
@@ -35,56 +38,62 @@ const ListCars = ({ cars, isLoading }: carProps) => {
                   .map((_, index) => <CarCardSkeleton key={index} />)
               : cars &&
                 cars.result.length > 0 &&
-                cars.result.map((car) => (
-                  <Link
-                    href={"/cars/" + car.id}
-                    key={car.id}
-                    className="shadow-lg bg-gray-50 rounded-b-xl"
-                  >
-                    <div className="relative h-[150px] transitions w-full hover:brightness-50 ">
-                      <Image
-                        className="object-cover rounded-t-xl "
-                        src={`${car.imageUrl}`}
-                        alt={`/${car.title}`}
-                        fill
-                        priority
-                      />
-                    </div>
-                    <div className="p-4">
-                      <div className="flex justify-center ">
-                        {/* <h2 className="text-slate-200 bg-slate-950 px-4 py-1 rounded-sm text-sm font-medium">
+                cars.result
+                  .filter((car) =>
+                    car.title
+                      ?.toLocaleLowerCase()
+                      .includes(search.toLocaleLowerCase())
+                  )
+                  .map((car) => (
+                    <Link
+                      href={"/cars/" + car.id}
+                      key={car.id}
+                      className="shadow-lg bg-gray-50 rounded-b-xl"
+                    >
+                      <div className="relative  h-[200px] transitions w-[275px] hover:brightness-50 ">
+                        <Image
+                          className="object-cover object-center  rounded-t-xl "
+                          src={`${car.imageUrl}`}
+                          alt={`/${car.title}`}
+                          fill
+                          priority
+                        />
+                      </div>
+                      <div className="p-4">
+                        <div className="flex justify-center ">
+                          {/* <h2 className="text-slate-200 bg-slate-950 px-4 py-1 rounded-sm text-sm font-medium">
                           {car.year}
                         </h2> */}
-                        <h1 className="text-gray-500 text-base text-center">
-                          {car.title}
-                        </h1>
-                      </div>
-                      <div className="flex justify-between my-4 w-full">
-                        <div className="font-bold text-sm">
-                          Ksh: {String(car.marketplacePrice)}
+                          <h1 className="text-gray-500 text-base text-center">
+                            {car.title}
+                          </h1>
                         </div>
-                        <div>
-                          {car.sold ? (
-                            <span className="bg-red-500 rounded text-sm py-1 font-semibold capitalize text-slate-200  backdrop-blur">
-                              Sold
-                            </span>
-                          ) : (
-                            <span className="border rounded text-sm  font-semibold capitalize text-cyan-500 px-4 py-1  backdrop-blur">
-                              Available
-                            </span>
-                          )}
+                        <div className="flex justify-between my-4 w-full">
+                          <div className="font-bold text-sm">
+                            Ksh: {String(car.marketplacePrice)}
+                          </div>
+                          <div>
+                            {car.sold ? (
+                              <span className="bg-red-500 rounded text-sm py-1 font-semibold capitalize text-slate-200  backdrop-blur">
+                                Sold
+                              </span>
+                            ) : (
+                              <span className="border rounded text-sm  font-semibold capitalize text-cyan-500 px-4 py-1  backdrop-blur">
+                                Available
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <hr className="my-4" />
+                        <div className="w-full  flex justify-center  ">
+                          <button className="bg-blue-500 hover:bg-blue-700 active:scale-105 transitions text-white w-3/4 rounded py-2 ">
+                            Buy Now
+                          </button>
                         </div>
                       </div>
-                      <hr className="my-4" />
-                      <div className="w-full  flex justify-center  ">
-                        <button className="bg-red-500 text-white w-3/4 rounded py-2 ">
-                          Buy Now
-                        </button>
-                      </div>
-                    </div>
-                    {/* <p>{car.}</p> */}
-                  </Link>
-                ))}
+                      {/* <p>{car.}</p> */}
+                    </Link>
+                  ))}
           </div>
         </main>
       </div>

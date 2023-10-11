@@ -46,7 +46,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
                 </h1>
                 <div>
                   <span className="font-bold">Car Value</span>
-                  <span className="bg-slate-950 ml-4 px-4 py-1.5 rounded text-slate-200 ">
+                  <span className="border border-blue-500 ml-4 px-4 py-1.5 rounded text-red-500  text-sm font-bold ">
                     Ksh : {car.marketplacePrice}
                   </span>
                 </div>

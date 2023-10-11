@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import AnimatedText from "./AnimatedText";
 import { Variant } from "./variants";
 
@@ -42,14 +42,10 @@ const HeroSection = ({ cars }: carProps) => {
             >
               <Link
                 href={`/cars/${data.id}`}
-                className="bg-red-500  px-6 py-2 rounded !text-white inline-flex"
+                className="bg-red-500 hover:bg-red-700 transitions active:scale-105  px-6 py-2 rounded !text-white inline-flex"
               >
                 Read More
               </Link>
-              {/* <button className="primary-btn border border-orange-500  inline-flex items-center gap-2">
-                <CartIcon />
-                <span>Add to Cart</span>
-              </button> */}
             </motion.div>
           </div>
           <div className="relative -top-20">

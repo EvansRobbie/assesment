@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Search from "../Search";
 
 const navItems = [
   { path: "/", name: "Home" },
@@ -8,6 +10,14 @@ const navItems = [
   { path: "/", name: "1w3" },
 ];
 
+const categories = [
+  { id: 1, cat: "SUV" },
+  { id: 2, cat: "Hatchback" },
+  { id: 3, cat: "Sedan" },
+  { id: 4, cat: "Convertible" },
+  { id: 5, cat: "Station Wagon" },
+  { id: 6, cat: "Coupe" },
+];
 const topNav = [
   {
     path: "/",
@@ -211,7 +221,7 @@ const Navbar = () => {
               style={{ whiteSpace: "nowrap" }}
               className="flex gap-2 w-full items-center "
             >
-              <div className="border-l-2 h-full"></div>
+              <div className="border-l-2 h-full" />
               <span className="flex whitespace-nobreak">{nav.icon}</span>
               <span className="text-slate-200 text-sm hover:text-slate-300">
                 {nav.name}
@@ -221,22 +231,21 @@ const Navbar = () => {
         </div>
       </div>
       <div className="w-full flex h-20 px-4 shadow-sm  max-w-[1100px] gap-4  mx-auto justify-between items-center ">
-        <div className="text-3xl font-bold text-red-500 border">
-          <Link href={"/"} style={{ whiteSpace: "nowrap" }}>
-            Car Dealers
+        <div className="text-3xl font-bold  ">
+          <Link href={"/"} style={{ whiteSpace: "nowrap" }} className="py-2">
+            <div className="relative h-20 w-32 ">
+              <Image
+                src="/logo.png"
+                className="object-cover"
+                alt="/logo"
+                fill
+                priority
+              />
+            </div>
           </Link>
         </div>
-        <div>
-          <div className="w-[100vh] flex  gap-2 ">
-            <input
-              type="text"
-              className="w-full px-4 py-2 flex-grow max-w-full outline-none border border-gray-400 shadow-md"
-              placeholder="Search"
-            />
-            <button className="px-10 py-2 bg-red-500">Search</button>
-          </div>
-        </div>
-        <div className="bg-black w- py-2 px-4 rounded">
+        <Search />
+        <div className="bg-black text-slate-100 w- py-2 px-4 rounded">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -254,7 +263,7 @@ const Navbar = () => {
         </div>
       </div>
       <div className="w-full border-b"></div>
-      <div className="navbar bg-base-100 text-slate-900 px-4 max-w-[1100px] mx-auto">
+      <div className="navbar bg-white text-slate-900 px-4 max-w-[1100px] mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -281,18 +290,18 @@ const Navbar = () => {
                 <Link href={"/"}>Home</Link>
               </li>
               <li>
-                <a>Parent</a>
+                <a>Condition</a>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <a>Local</a>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <a>Foreign </a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Sales Agent</a>
               </li>
             </ul>
           </div>
@@ -302,12 +311,11 @@ const Navbar = () => {
                 <details>
                   <summary className="border">All categories</summary>
                   <ul className="p-2">
-                    <li>
-                      <a>Submenu 1</a>
-                    </li>
-                    <li>
-                      <a>Submenu 2</a>
-                    </li>
+                    {categories.map((cat) => (
+                      <li key={cat.id}>
+                        <a>{cat.cat}</a>
+                      </li>
+                    ))}
                   </ul>
                 </details>
               </li>
@@ -321,19 +329,19 @@ const Navbar = () => {
             </li>
             <li tabIndex={0}>
               <details>
-                <summary>Parent</summary>
+                <summary>Condition</summary>
                 <ul className="p-2">
                   <li>
-                    <a>Submenu 1</a>
+                    <a>Local</a>
                   </li>
                   <li>
-                    <a>Submenu 2</a>
+                    <a>Foreign</a>
                   </li>
                 </ul>
               </details>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Sales Agent</a>
             </li>
           </ul>
         </div>

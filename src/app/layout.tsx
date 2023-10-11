@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import SearchContextProvider from "@/context/SearchContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Toaster position="top-right" />
-        <Navbar />
-        <div className="w-full min-h-screen bg-gray-100">
-          <div className="py-4">{children}</div>
-        </div>
+        <SearchContextProvider>
+          <Toaster position="top-right" />
+          <Navbar />
+          <div className="w-full min-h-screen bg-gray-100">
+            <div className="py-4">{children}</div>
+          </div>
+        </SearchContextProvider>
       </body>
     </html>
   );
