@@ -82,7 +82,7 @@ const HeroSection = ({ cars }: carProps) => {
                 alt="heroimage"
               />
             </motion.div>
-            <div className=" absolute right-0 lg:right-24 rounded-full top-20 md:top-36  z-0 h-52 w-52 md:h-60 md:w-60 bg-black shadow-lg shadow-red-500 "></div>
+            <div className=" absolute right-0 lg:right-24 rounded-full top-20 md:top-36  z-0 h-52 w-52 md:h-60 md:w-60 bg-black shadow-lg shadow-red-500 " />
           </div>
         </div>
       </div>

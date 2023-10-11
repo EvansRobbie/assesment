@@ -9,7 +9,7 @@ import { useMediaQuery } from "usehooks-ts";
 const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
   const pathname = usePathname();
   const [scrollNav, setScrollNav] = useState(false);
-  const isMediumDevice = useMediaQuery("(max-width:768px)");
+  const isMediumDevice = useMediaQuery("(max-width:820px)");
   const isLaptop = useMediaQuery("(min-width:1024px)");
   const { setShowFilter, showFilter } = useSearch();
   const mobileFilter = () => {};
@@ -32,7 +32,7 @@ const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
     <aside
       className={`${
         showFilter && isMediumDevice
-          ? " fixed z-10 top-10 left-0"
+          ? " fixed z-10 top-2 left-0"
           : pathname.startsWith("/cars")
           ? "absolute top-0 left-0"
           : scrollNav && isLaptop
