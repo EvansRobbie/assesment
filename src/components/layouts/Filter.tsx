@@ -37,7 +37,7 @@ const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
           ? "absolute top-0 left-0"
           : scrollNav && isLaptop
           ? " fixed z-10 -left-1 xl:left-10 top-2"
-          : "absolute z-40 -left-full md:-left-[100%] transitions !ease-in-out duration-300 "
+          : "absolute z-10 -left-[300%] md:-left-[100%] transitions !ease-in-out duration-300 "
       } md:w-1/3 lg:w-1/4 px-4 transitions !ease-out duration-300 overflow-auto`}
     >
       <div
