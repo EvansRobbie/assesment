@@ -50,11 +50,11 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
                     <Link
                       href={"/cars/" + car.id}
                       key={car.id}
-                      className="shadow-lg bg-gray-50 rounded-b-xl"
+                      className="shadow-lg bg-gray-50 w-full rounded-b-xl"
                     >
-                      <div className="relative  h-[200px] transitions xl:w-[275px] hover:brightness-50 ">
+                      <div className="relative h-[200px] w-full transitions xl:w-[275px] hover:brightness-50 ">
                         <Image
-                          className="object-cover object-center  rounded-t-xl "
+                          className="object-cover object-center rounded-t-xl "
                           src={`${car.imageUrl}`}
                           alt={`/${car.title}`}
                           fill
