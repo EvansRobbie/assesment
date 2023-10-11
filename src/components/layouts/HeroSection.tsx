@@ -2,9 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import AnimatedText from "./AnimatedText";
+
 import { Variant } from "./variants";
+import { carousel } from "@/data/carouselData";
 
 interface carProps {
   cars: {
@@ -14,6 +16,24 @@ interface carProps {
 }
 const HeroSection = ({ cars }: carProps) => {
   const data = cars && cars.result[0];
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const nextSlide = () => {
+    setCurrentSlide((prevIndex) => (prevIndex + 1) % carousel.length);
+  };
+
+  useEffect(() => {
+    timerRef.current = setInterval(nextSlide, 3000);
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [carousel[currentSlide].image]);
+
   return (
     <div className="bg-slate-950 max-h-[50vh] flex items-center text-slate-200 py-8">
       <div className="mx-auto max-w-[1100px] ">
@@ -48,19 +68,19 @@ const HeroSection = ({ cars }: carProps) => {
               </Link>
             </motion.div>
           </div>
-          <div className="relative -top-20">
+          <div className="relative h-[60vh] -top-20">
             <motion.div
               variants={Variant}
               initial="hidden"
               animate="visible"
               transition={{ delay: 2.6, duration: 1 }}
-              className="relative  z-10 h-[60vh] full"
+              className="relative  z-10 h-[60vh] top-10 w-[30vw]"
             >
               <Image
                 fill={true}
                 priority
                 className="object-contain"
-                src={`/audi-image.png`}
+                src={`${carousel[currentSlide].image}`}
                 alt="heroimage"
               />
             </motion.div>
