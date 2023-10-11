@@ -52,7 +52,7 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
                       key={car.id}
                       className="shadow-lg bg-gray-50 w-full rounded-b-xl"
                     >
-                      <div className="relative h-[200px] w-full transitions xl:w-[275px] hover:brightness-50 ">
+                      <div className="relative h-[30vh] md:h-[200px] w-full transitions xl:w-[275px] hover:brightness-50 ">
                         <Image
                           className="object-cover object-center rounded-t-xl "
                           src={`${car.imageUrl}`}
