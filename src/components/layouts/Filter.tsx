@@ -37,7 +37,7 @@ const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
           ? "absolute top-0 left-0"
           : scrollNav && isLaptop
           ? " fixed z-10 -left-1 xl:left-10 top-2"
-          : "absolute -left-[200%] md:-left-[100%] transitions !ease-in-out duration-300 "
+          : "absolute z-40 -left-full md:-left-[100%] transitions !ease-in-out duration-300 "
       } md:w-1/3 lg:w-1/4 px-4 transitions !ease-out duration-300 overflow-auto`}
     >
       <div
@@ -50,7 +50,7 @@ const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
       <div className="block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
         <h3 className="font-semibold mb-2 text-red-500">Popular Brand</h3>
 
-        <ul className="space-y-1 flex flex-wrap gap-4">
+        <ul className="space-y-1 grid grid-cols-4 md:grid-cols-3 gap-4">
           {popularMake.makeList.length > 0 &&
             popularMake.makeList.map((brand) => (
               <div key={brand.id} className="flex items-center gap-2">
