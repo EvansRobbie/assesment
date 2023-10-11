@@ -18,7 +18,7 @@ const searchContext = createContext({} as contextProps);
 
 const SearchContextProvider = ({ children }: { children: ReactNode }) => {
   const [search, setSearch] = useState<string>("");
-  const [showFilter, setShowFilter] = useState(true);
+  const [showFilter, setShowFilter] = useState(false);
 
   // const
   return (
