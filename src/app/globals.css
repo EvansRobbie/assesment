@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    box-sizing: border-box;
+    @apply m-0 p-0;
+  }
   .transitions {
     @apply ease-in duration-300 transition-all;
   }
