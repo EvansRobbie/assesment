@@ -29,7 +29,7 @@ const CarId: React.FC<carProps> = ({ params: { carId } }) => {
   car = data && data[1];
 
   return (
-    <div className="mx-auto max-w-[1100px]">
+    <div className="mx-auto max-w-[1100px] px-4">
       <div className="my-4">
         <Breadcrumb replacePath={pathname} />
       </div>
