@@ -51,7 +51,7 @@ export default async function Home({
   return (
     <main className="flex min-h-screen flex-col ">
       <HeroSection cars={cars} />
-      <div className="  my-6 px-4  max-w-[1100px] mx-auto">
+      <div className="  my-6 px-4 relative max-w-[1100px] mx-auto w-full lg:-right-28 xl:-right-44">
         <ListCars cars={cars} isLoading={isLoading} popularMake={popularMake} />
       </div>
     </main>
