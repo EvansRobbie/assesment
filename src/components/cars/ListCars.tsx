@@ -32,7 +32,7 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
       <div className="flex relative flex-col md:flex-row ">
         <FilterButton />
         <Filters popularMake={popularMake} />
-        <main className=" relative lg:-right-28 xl:-right-44">
+        <main className=" relative lg:-right-60 xl:-right-44">
           <div className=" grid grid-cols-1 md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)
