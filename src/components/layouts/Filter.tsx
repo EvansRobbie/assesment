@@ -24,7 +24,7 @@ const Filters = ({ popularMake }: { popularMake: PopularEntity }) => {
         pathname.startsWith("/cars")
           ? "absolute top-0 left-0"
           : scrollNav
-          ? "fixed left-20 top-2"
+          ? "fixed -left-1 xl:left-10 top-2"
           : "absolute -left-[100%] "
       } md:w-1/3 lg:w-1/4 px-4 transitions !ease-out duration-300 overflow-auto`}
     >

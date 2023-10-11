@@ -30,7 +30,7 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
       </div>
       <div className="flex relative flex-col md:flex-row ">
         <Filters popularMake={popularMake} />
-        <main className=" px-3 relative -right-44">
+        <main className=" px-3 relative -right-28 xl:-right-44">
           <div className=" grid grid-cols-1 sm:grid-cols-2  md:grid-cols-3 w-full gap-4">
             {isLoading
               ? Array(4)
@@ -50,7 +50,7 @@ const ListCars = ({ cars, isLoading, popularMake }: carProps) => {
                       key={car.id}
                       className="shadow-lg bg-gray-50 rounded-b-xl"
                     >
-                      <div className="relative  h-[200px] transitions w-[275px] hover:brightness-50 ">
+                      <div className="relative  h-[200px] transitions xl:w-[275px] hover:brightness-50 ">
                         <Image
                           className="object-cover object-center  rounded-t-xl "
                           src={`${car.imageUrl}`}

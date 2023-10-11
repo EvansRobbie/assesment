@@ -35,7 +35,7 @@ const HeroSection = ({ cars }: carProps) => {
   }, [carousel[currentSlide].image]);
 
   return (
-    <div className="bg-slate-950 max-h-[50vh] flex items-center text-slate-200 py-8">
+    <div className="bg-slate-950 max-h-[50vh] flex items-center px-4 text-slate-200 py-8">
       <div className="mx-auto max-w-[1100px] ">
         <div className="grid grid-cols-2 gap-10 items-center">
           <div>
@@ -49,8 +49,7 @@ const HeroSection = ({ cars }: carProps) => {
               {data.title}
             </motion.h1>
             <AnimatedText
-              text=" Welcome to Robbie Motors - Your Trusted Source for Quality
-              Pre-Owned Cars!"
+              text="Welcome to Robbie Motors - Your Trusted Source for Quality Pre-Owned Cars!"
               className=" text-[#aaa]  font-semibold py-4 text-2xl"
             />
             <motion.div
